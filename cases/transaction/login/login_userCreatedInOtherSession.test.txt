@@ -1,0 +1,38 @@
+# First terminals attempt to create user1 and user 2, and then log in user 1. 
+# The second terminal attempts to log in user 2. 
+# The first terminal should success but the second terminal may fail.
+
+
+# Terminal 1's inputs:
+create user1 user1 10000
+login user1 user1
+create user2 user2 10000
+quit
+*
+
+# expected output:
+Created user user1
+Logged in as user1
+Created user user2
+Goodbye
+|
+Created user1 user1
+Logged in as user1
+Created user2 user2
+Goodbye
+*
+
+##################### Concurrently executed commands: #####################
+
+# commands:
+login user2 user2
+quit
+*
+
+# expected output:
+Login failed
+Goodbye
+|
+Logged in as user2
+Goodbye
+*

@@ -1,0 +1,13 @@
+# Verify that a user cannot log if the username does not exist.
+
+# commands to execute:
+create user1 user1 10
+login user3 aaa
+quit
+*
+
+# expected output:
+Created user user1
+Login failed
+Goodbye
+*

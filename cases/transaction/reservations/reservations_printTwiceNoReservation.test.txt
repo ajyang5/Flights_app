@@ -1,0 +1,47 @@
+# One user list out reservations (no reservation) concurrently, should both succeed printing
+
+# commands/input for terminal 1:
+create user1 user1 1000
+login user1 user1
+reservations
+quit
+*
+
+# expected outputs:
+# Terminal 1 succeed to create user
+Created user user1
+Logged in as user1
+No reservations found
+Goodbye
+|  
+
+# Terminal 1 fails to create user
+Failed to create user
+Logged in as user1
+No reservations found
+Goodbye
+*
+
+##################### Terminal 2: #####################
+
+# commands/input:
+create user1 user1 1000
+login user1 user1
+reservations
+quit
+*
+
+# expected outputs:
+# Terminal 2 fails to create user
+Failed to create user
+Logged in as user1
+No reservations found
+Goodbye
+| 
+
+# Terminal 2 succeed to create user
+Created user user1
+Logged in as user1
+No reservations found
+Goodbye
+*

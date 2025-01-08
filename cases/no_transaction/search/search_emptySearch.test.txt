@@ -1,0 +1,11 @@
+# Verify that an error will be returned if no matching itinerary
+
+# commands:
+search "Seattle WA" "London" 1 9 1
+quit
+*
+
+# expected command output:
+No flights match your selection
+Goodbye
+*
